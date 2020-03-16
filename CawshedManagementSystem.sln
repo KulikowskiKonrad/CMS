@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMS.Domain", "src\CMS.Domain\CMS.Domain.csproj", "{CA951710-5EDC-44F9-92C4-7CD0F5E5D602}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CMS.Domain", "src\CMS.Domain\CMS.Domain.csproj", "{CA951710-5EDC-44F9-92C4-7CD0F5E5D602}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMS.Infrastructure", "src\CMS.Infrastructure\CMS.Infrastructure.csproj", "{C7C24F6C-68EC-4D48-9842-BEC7FA883A51}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CMS.Infrastructure", "src\CMS.Infrastructure\CMS.Infrastructure.csproj", "{C7C24F6C-68EC-4D48-9842-BEC7FA883A51}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMS.WebApi", "src\CMS.WebApi\CMS.WebApi.csproj", "{5598B61A-E473-4786-BD4D-97B5D0FA71D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CMS.WebApi", "src\CMS.WebApi\CMS.WebApi.csproj", "{5598B61A-E473-4786-BD4D-97B5D0FA71D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMS.Application", "src\CMS.Application\CMS.Application.csproj", "{4AE3B042-FBD6-4E38-9C39-46E690DC85DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{5598B61A-E473-4786-BD4D-97B5D0FA71D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5598B61A-E473-4786-BD4D-97B5D0FA71D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5598B61A-E473-4786-BD4D-97B5D0FA71D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AE3B042-FBD6-4E38-9C39-46E690DC85DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AE3B042-FBD6-4E38-9C39-46E690DC85DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AE3B042-FBD6-4E38-9C39-46E690DC85DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AE3B042-FBD6-4E38-9C39-46E690DC85DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

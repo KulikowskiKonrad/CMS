@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using CMS.Domain.Models;
+using CMS.Application.Commands.Cow;
+using CMS.Application.Queries.Cows.GetAllMyCows;
 using CMS.Infrastructure;
-using Microsoft.AspNetCore.Http;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CMS.WebApi.Controllers
@@ -14,20 +13,77 @@ namespace CMS.WebApi.Controllers
     public class CowController : ControllerBase
     {
         private readonly CMSDbContext _context;
+        private readonly IMediator _mediator;
 
-        public CowController(CMSDbContext context)
+        public CowController(CMSDbContext context, IMediator mediator)
         {
             _context = context;
+            _mediator = mediator;
         }
 
         [HttpPost]
-        public IActionResult New(NewCowCommand command)
+        public async Task<IActionResult> New(NewCowCommand command)
         {
             try
             {
-                var cow = new Cow(command.earningNumber, command.dateOfBirth);
-                _context.Add(cow);
-                _context.SaveChanges();
+                await _mediator.Send(command);
+
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest();
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Kill(KillCowCommand command)
+        {
+            try
+            {
+                await _mediator.Send(command);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest();
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Sell(SellCowCommand command)
+        {
+            try
+            {
+                await _mediator.Send(command);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest();
+            }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetCowsList()
+        {
+            try
+            {
+                var cowsList = await _mediator.Send(new GetAllMyCowsQuery());
+                return Ok(cowsList);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest();
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Buy(BuyCowCommand command)
+        {
+            try
+            {
+                await _mediator.Send(command);
                 return Ok();
             }
             catch (Exception)
@@ -35,81 +91,5 @@ namespace CMS.WebApi.Controllers
                 return BadRequest();
             }
         }
-
-        [HttpPost]
-        public IActionResult Kill(KillCowCommand command)
-        {
-            try
-            {
-                var deathCow = _context.Cows.Where(x => x.Id == command.Id).SingleOrDefault();
-                deathCow.Kill(command.DateOfDeath);
-                _context.SaveChanges();
-                return Ok();
-            }
-            catch (Exception)
-            {
-                return BadRequest();
-            }
-        }
-
-        [HttpPost]
-        public IActionResult Sell(SellCowCommand command)
-        {
-            try
-            {
-                var cowToSell = _context.Cows.Where(x => x.Id == command.Id).SingleOrDefault();
-                cowToSell.Sell(command.Price, command.Weight, command.DateOfSold);
-                _context.SaveChanges();
-                return Ok();
-            }
-            catch (Exception)
-            {
-                return BadRequest();
-            }
-        }
-
-        [HttpPost]
-        public IActionResult Buy(BuyCowCommand command)
-        {
-            try
-            {
-                var cow = Cow.FromBought(command.Price, command.Weight, command.DateOfBirth, command.EarningNumber);
-                _context.Add(cow);
-                _context.SaveChanges();
-                return Ok();
-            }
-            catch (Exception)
-            {
-                return BadRequest();
-            }
-        }
-    }
-
-    public class NewCowCommand
-    {
-        public string earningNumber { get; set; }
-        public DateTime dateOfBirth { get; set; }
-    }
-
-    public class KillCowCommand
-    {
-        public long Id { get; set; }
-        public DateTime DateOfDeath { get; set; }
-    }
-
-    public class SellCowCommand
-    {
-        public long Id { get; set; }
-        public double Price { get; set; }
-        public double Weight { get; set; }
-        public DateTime DateOfSold { get; set; }
-    }
-
-    public class BuyCowCommand
-    {
-        public double Price { get; set; }
-        public double Weight { get; set; }
-        public DateTime DateOfBirth { get; set; }
-        public string EarningNumber { get; set; }
     }
 }

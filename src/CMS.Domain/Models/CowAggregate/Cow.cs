@@ -1,13 +1,12 @@
-﻿using System;
+﻿using CMS.Domain.Models.CowAggregate;
+using CMS.Domain.SeedWork;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace CMS.Domain.Models
 {
-    public class Cow
+    public class Cow : Entity
     {
-        public long Id { get; private set; }
         public string EarningNumber { get; private set; }
         public DateTime DateOfBirth { get; private set; }
         public CowStatus Status { get; private set; }
@@ -16,6 +15,24 @@ namespace CMS.Domain.Models
         public double? BoughtPrice { get; private set; }
         public DateTime? DateOfSold { get; private set; }
         public DateTime? DateOfDeath { get; private set; }
+        public CowType Type { get; private set; }
+        public string PassportNumber { get; private set; }
+        public Cow Mother { get; private set; }
+        public Cow Father { get; private set; }
+        public string PseudoName { get; private set; }
+        public bool InPregnant { get; private set; }
+        public List<Milking> Milkings { get; private set; }
+        public List<Disease> Diseases { get; private set; }
+        public List<Pregnancy> Pregnancies { get; private set; }
+        public List<Insemination> Inseminations { get; private set; }
+        public Contractor Contractor { get; private set; }
+        public Cowshed Cowshed { get; private set; }
+        public Gender Gender { get; private set; }
+
+        private long CowshedId;
+        private long ContractorId;
+        private long? MotherId;
+        private long? FatherId;
 
         public Cow(string earningNumber, DateTime dateOfBirth)
         {
