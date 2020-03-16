@@ -1,9 +1,6 @@
 ﻿using CMS.Domain.Models.CowAggregate;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace CMS.Infrastructure.TypesConfiguration
 {
