@@ -10,6 +10,7 @@ namespace CMS.Domain.Models.CowAggregate
         public bool ByDoctor { get; private set; }
         public DateTime Date { get; private set; }
         public CowType? CowType { get; private set; }
+        public Pregnancy Pregnancy { get; private set; }
         public long MotherId { get; private set; }
         public long? FatherId { get; private set; }
     }
