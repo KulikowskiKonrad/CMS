@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using CMS.Domain.SeedWork;
+using System;
 
 namespace CMS.Domain.Models
 {
-    public class Disease
+    public class Disease : Entity
     {
-        public long Id { get; private set; }
         public string Name { get; private set; }
         public string Cure { get; private set; }
         public DateTime? SuggestedExpiriedDate { get; private set; }
