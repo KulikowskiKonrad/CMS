@@ -11,7 +11,7 @@ namespace CMS.Domain.Models
         public DateTime Start { get; private set; }
         public DateTime Stop { get; private set; }
         public Cow Cow { get; private set; }
-        private long CowId;
+        public long CowId { get; private set; }
 
         internal Disease()
         {

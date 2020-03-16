@@ -11,7 +11,7 @@ namespace CMS.Domain.Models.CowAggregate
         public Cow Child { get; private set; }
         public Insemination Insemination { get; private set; }
         public CowType CowType { get; private set; }
-        private long ChildId;
-        private long InseminationId;
+        public long ChildId { get; private set; }
+        public long InseminationId { get; private set; }
     }
 }

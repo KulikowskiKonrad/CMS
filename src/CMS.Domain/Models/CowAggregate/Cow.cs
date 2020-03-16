@@ -21,18 +21,22 @@ namespace CMS.Domain.Models
         public Cow Father { get; private set; }
         public string PseudoName { get; private set; }
         public bool InPregnant { get; private set; }
-        public List<Milking> Milkings { get; private set; }
-        public List<Disease> Diseases { get; private set; }
-        public List<Pregnancy> Pregnancies { get; private set; }
-        public List<Insemination> Inseminations { get; private set; }
-        public Contractor Contractor { get; private set; }
+        public IReadOnlyCollection<Milking> Milkings => _Milkings.AsReadOnly();
+        public IReadOnlyCollection<Disease> Diseases => _Diseases.AsReadOnly();
+        public IReadOnlyCollection<Pregnancy> Pregnancies => _Pregnancies.AsReadOnly();
+        public IReadOnlyCollection<Insemination> InseminationsAsMother => _InseminationsAsMother.AsReadOnly();
+        public IReadOnlyCollection<Insemination> InseminationsAsFather => _InseminationsAsFather.AsReadOnly();
         public Cowshed Cowshed { get; private set; }
         public Gender Gender { get; private set; }
+        public long CowshedId { get; private set; }
+        public long? MotherId { get; private set; }
+        public long? FatherId { get; private set; }
 
-        private long CowshedId;
-        private long ContractorId;
-        private long? MotherId;
-        private long? FatherId;
+        private List<Milking> _Milkings;
+        private List<Disease> _Diseases;
+        private List<Pregnancy> _Pregnancies;
+        private List<Insemination> _InseminationsAsMother;
+        private List<Insemination> _InseminationsAsFather;
 
         public Cow(string earningNumber, DateTime dateOfBirth)
         {

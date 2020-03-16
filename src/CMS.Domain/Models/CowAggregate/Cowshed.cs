@@ -9,7 +9,9 @@ namespace CMS.Domain.Models.CowAggregate
         public short NumberOfPlaces { get; private set; }
         public string Name { get; private set; }
         public DateTime DateOfBuild { get; private set; }
-        public List<Cow> CowsList { get; set; }
-        private long UserId;
+        public long UserId { get; private set; }
+        public IReadOnlyCollection<Cow> Cows => _Cows.AsReadOnly();
+
+        private List<Cow> _Cows;
     }
 }
