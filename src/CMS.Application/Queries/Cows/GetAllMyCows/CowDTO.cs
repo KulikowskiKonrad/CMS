@@ -7,7 +7,7 @@ namespace CMS.Application.Queries.Cows.GetAllMyCows
     {
         public long Id { get; set; }
         public string EarningNumber { get; set; }
-        public CowStatus Status { get; set; }
+        public string Status { get; set; }
         public double? Weight { get; set; }
     }
 }

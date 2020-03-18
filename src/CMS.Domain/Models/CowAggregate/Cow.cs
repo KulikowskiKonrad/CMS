@@ -37,14 +37,15 @@ namespace CMS.Domain.Models.CowAggregate
         private List<Insemination> _InseminationsAsMother;
         private List<Insemination> _InseminationsAsFather;
 
-        public Cow(string earningNumber, DateTime dateOfBirth)
+        public Cow(string earningNumber, DateTime dateOfBirth, string passportNumber, long cowshedId)
         {
             if (string.IsNullOrEmpty(earningNumber))
             {
                 throw new ArgumentException();
             }
             EarningNumber = earningNumber;
-
+            CowshedId = cowshedId;
+            PassportNumber = passportNumber;
             DateOfBirth = dateOfBirth;
             Status = CowStatus.FromMyFarm;
         }
@@ -56,10 +57,8 @@ namespace CMS.Domain.Models.CowAggregate
 
         public void AddMilking(DateTime milkingDate, short volume)
         {
-            if (_Milkings == null)
-            {
-                throw new Exception($"Property {nameof(_Milkings)} is not initialized.");
-            }
+            if (_Milkings == null) throw new Exception($"Property {nameof(_Milkings)} is not initialized.");
+
             _Milkings.Add(new Milking(milkingDate, volume));
         }
 
@@ -77,6 +76,7 @@ namespace CMS.Domain.Models.CowAggregate
             {
                 throw new ArgumentException();
             }
+
 
             cow.BoughtPrice = price;
             cow.DateOfBirth = dateOfBirth;

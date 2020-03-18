@@ -22,6 +22,7 @@ namespace CMS.Application.Queries.Milking
         public async Task<List<MilkingDTO>> Handle(GetAllMilkingsQuery request, CancellationToken cancellationToken)
         {
             var milkings = _context.Milkings.AsQueryable();
+
             if (request.AdditionDate.HasValue)
             {
                 milkings = milkings.Where(x => x.AdditionTime.Date == request.AdditionDate.Value.Date);

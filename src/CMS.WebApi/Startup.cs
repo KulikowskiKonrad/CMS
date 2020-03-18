@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using AutoMapper;
+using CMS.Application.Commands.Cows;
 using CMS.Infrastructure;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
@@ -31,11 +32,11 @@ namespace CMS.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddAutoMapper(typeof(Startup));
+            services.AddMediatR(typeof(NewCowCommandHandler));
+            services.AddAutoMapper(typeof(NewCowCommand).Assembly);
             services.AddControllers();
             services.AddDbContext<CMSDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("CawshedManagementDbConnectionString")));
-            services.AddMediatR(Assembly.GetExecutingAssembly());
-
+            
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });

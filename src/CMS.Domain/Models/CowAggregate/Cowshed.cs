@@ -14,7 +14,10 @@ namespace CMS.Domain.Models.CowAggregate
 
         private List<Cow> _Cows;
 
+        private Cowshed()
+        {
 
+        }
         public Cowshed(short numberOfPlaces, string name, DateTime dateOfBiuld)
         {
             NumberOfPlaces = numberOfPlaces;

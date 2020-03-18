@@ -10,12 +10,15 @@ namespace CMS.Domain.Models.CowAggregate
         public Cow Cow { get; private set; }
         public long CowId { get; private set; }
 
+        private Milking()
+        {
+
+        }
 
         internal Milking(DateTime milkingDate, short volume)
         {
             Volume = volume;
             AdditionTime = milkingDate;
         }
-
     }
 }

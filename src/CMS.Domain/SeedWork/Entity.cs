@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CMS.Domain.Models.CowAggregate;
+using System;
 using System.Collections.Generic;
 using System.Text;
 

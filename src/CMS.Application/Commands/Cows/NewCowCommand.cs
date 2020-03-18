@@ -7,5 +7,7 @@ namespace CMS.Application.Commands.Cows
     {
         public string EarningNumber { get; set; }
         public DateTime DateOfBirth { get; set; }
+        public string PassportNumber { get; set; }
+        public long CowshedId { get;  set; }
     }
 }

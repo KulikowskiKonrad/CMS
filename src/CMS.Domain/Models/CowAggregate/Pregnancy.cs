@@ -13,5 +13,15 @@ namespace CMS.Domain.Models.CowAggregate
         public CowType CowType { get; private set; }
         public long? ChildId { get; private set; }
         public long? InseminationId { get; private set; }
+
+        private Pregnancy()
+        {
+            // For EF
+        }
+
+        internal Pregnancy( string name)
+        {
+
+        }
     }
 }
