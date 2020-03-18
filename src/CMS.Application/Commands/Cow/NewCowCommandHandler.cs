@@ -15,7 +15,7 @@ namespace CMS.Application.Commands.Cow
 
         public async Task<Unit> Handle(NewCowCommand request, CancellationToken cancellationToken)
         {
-            var newCow = new Domain.Models.Cow(request.EarningNumber, request.DateOfBirth);
+            var newCow = new Domain.Models.CowAggregate.Cow(request.EarningNumber, request.DateOfBirth);
             _context.Add(newCow);
             await _context.SaveChangesAsync(cancellationToken);
 

@@ -1,7 +1,7 @@
 ﻿using CMS.Domain.SeedWork;
 using System;
 
-namespace CMS.Domain.Models
+namespace CMS.Domain.Models.CowAggregate
 {
     public class Disease : Entity
     {

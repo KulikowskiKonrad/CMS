@@ -13,5 +13,15 @@ namespace CMS.Domain.Models.CowAggregate
         public IReadOnlyCollection<Cow> Cows => _Cows.AsReadOnly();
 
         private List<Cow> _Cows;
+
+
+        public Cowshed(short numberOfPlaces, string name, DateTime dateOfBiuld)
+        {
+            NumberOfPlaces = numberOfPlaces;
+            Name = name;
+            DateOfBuild = dateOfBiuld;
+
+        }
+
     }
 }

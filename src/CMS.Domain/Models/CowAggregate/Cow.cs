@@ -1,9 +1,8 @@
-﻿using CMS.Domain.Models.CowAggregate;
-using CMS.Domain.SeedWork;
+﻿using CMS.Domain.SeedWork;
 using System;
 using System.Collections.Generic;
 
-namespace CMS.Domain.Models
+namespace CMS.Domain.Models.CowAggregate
 {
     public class Cow : Entity
     {
@@ -53,6 +52,15 @@ namespace CMS.Domain.Models
         private Cow()
         {
 
+        }
+
+        public void AddMilking(DateTime milkingDate, short volume)
+        {
+            if (_Milkings == null)
+            {
+                throw new Exception($"Property {nameof(_Milkings)} is not initialized.");
+            }
+            _Milkings.Add(new Milking(milkingDate, volume));
         }
 
         public void Kill(DateTime dateOfDeath)

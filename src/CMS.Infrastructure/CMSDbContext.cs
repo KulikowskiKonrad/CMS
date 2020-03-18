@@ -16,7 +16,7 @@ namespace CMS.Infrastructure
 
         public const string DEFAULT_SCHEMA = "dbo";
 
-        public CMSDbContext(Microsoft.EntityFrameworkCore.DbContextOptions options) : base(options) { }
+        public CMSDbContext(DbContextOptions options) : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
