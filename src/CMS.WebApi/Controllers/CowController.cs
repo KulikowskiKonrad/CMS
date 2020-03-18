@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
-using CMS.Application.Commands.Cow;
+using CMS.Application.Commands.Cows;
 using CMS.Application.Queries.Cows.GetAllMyCows;
 using CMS.Infrastructure;
 using MediatR;

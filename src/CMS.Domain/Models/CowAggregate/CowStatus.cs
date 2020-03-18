@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace CMS.Domain
+﻿namespace CMS.Domain.Models.CowAggregate
 {
     public enum CowStatus : short
     {

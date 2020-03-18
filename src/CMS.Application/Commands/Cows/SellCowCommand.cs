@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using System;
 
-namespace CMS.Application.Commands.Cow
+namespace CMS.Application.Commands.Cows
 {
     public class SellCowCommand : IRequest
     {

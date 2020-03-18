@@ -1,4 +1,5 @@
 ﻿using CMS.Domain.Models;
+using CMS.Domain.Models.CowAggregate;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

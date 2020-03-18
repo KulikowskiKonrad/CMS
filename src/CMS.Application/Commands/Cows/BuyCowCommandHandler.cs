@@ -3,7 +3,7 @@ using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace CMS.Application.Commands.Cow
+namespace CMS.Application.Commands.Cows
 {
     public class BuyCowCommandHandler : IRequest<BuyCowCommand>
     {

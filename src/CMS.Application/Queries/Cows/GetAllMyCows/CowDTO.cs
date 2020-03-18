@@ -1,4 +1,5 @@
 ﻿using CMS.Domain;
+using CMS.Domain.Models.CowAggregate;
 
 namespace CMS.Application.Queries.Cows.GetAllMyCows
 {
