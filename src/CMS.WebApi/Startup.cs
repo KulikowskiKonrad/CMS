@@ -35,7 +35,7 @@ namespace CMS.WebApi
             services.AddMediatR(typeof(NewCowCommandHandler));
             services.AddAutoMapper(typeof(NewCowCommand).Assembly);
             services.AddControllers();
-            services.AddDbContext<CMSDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("cms_dev_db")));
+            services.AddDbContext<CMSDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("cmsdevdb")));
             
             services.AddSwaggerGen(c =>
             {
